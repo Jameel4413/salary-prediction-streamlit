@@ -78,8 +78,8 @@ with col2:
 
 # Row 2: Market Trend
 st.divider()
-st.subheader("📊 Salary Distribution (Market Mein Zyada log kya kama rahe hain?)")
-st.write("Ye graph dikhata hai ke zyada tar engineers kis salary range mein aate hain.")
+st.subheader("📊 Salary Distribution")
+st.write("The salary range of software engineers")
 fig3 = px.histogram(df, x="Cleaned_Salary", nbins=20, 
                    labels={'Cleaned_Salary': 'Annual Salary Range'},
                    color_discrete_sequence=['#636EFA'])
