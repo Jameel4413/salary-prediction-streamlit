@@ -7,7 +7,6 @@ import plotly.express as px
 # --- STEP 1: LOAD ASSETS ---
 @st.cache_resource
 def load_assets():
-    # Aapki files ke names yahan match karne chahiye
     model = joblib.load("salary_model.pkl")
     job_enc = joblib.load("job_encoder.pkl")
     loc_enc = joblib.load("location_encoder.pkl")
@@ -22,7 +21,7 @@ st.set_page_config(page_title="Salary Guide 2024", layout="wide")
 
 # --- SIDEBAR: PREDICTION ---
 st.sidebar.header("🔍 Predict Your Salary")
-st.sidebar.write("Apni details select karein aur check karein market kya pay kar rahi hai.")
+st.sidebar.write("Select the required details and check what market is paying")
 
 job_sel = st.sidebar.selectbox("Job Title", sorted(df['Job Title'].unique()))
 loc_sel = st.sidebar.selectbox("Location", sorted(df['Location'].unique()))
