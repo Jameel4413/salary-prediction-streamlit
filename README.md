@@ -15,3 +15,6 @@ This project predicts software engineer salaries based on:
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+=======
+# salary-prediction-streamlit
+>>>>>>> 37dac95e00385e726eba74d5e8e35caebd247e45
