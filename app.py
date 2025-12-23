@@ -28,7 +28,7 @@ job_sel = st.sidebar.selectbox("Job Title", sorted(df['Job Title'].unique()))
 loc_sel = st.sidebar.selectbox("Location", sorted(df['Location'].unique()))
 exp_sel = st.sidebar.selectbox("Experience Level", sorted(df['Experience_Level'].unique()))
 
-if st.sidebar.button("Check My Salary"):
+if st.sidebar.button("Predict Salary"):
     # Encoding inputs
     j_input = job_encoder.transform([job_sel])[0]
     l_input = loc_encoder.transform([loc_sel])[0]
@@ -39,11 +39,11 @@ if st.sidebar.button("Check My Salary"):
     prediction = model.predict(features)[0]
     
     st.sidebar.success(f"### 💰 Estimated Salary: ${int(prediction):,}")
-    st.sidebar.info("Ye salary aapke select kiye hue features ke base par predict ki gayi hai.")
+    st.sidebar.info("The salary is predicted on the basis of location you choosed.")
 
 # --- MAIN DASHBOARD: EASY INSIGHTS ---
 st.title("🚀 Software Engineer Salary Insights")
-st.markdown("Is dashboard ke zariye aap dekh sakte hain ke industry mein salaries ka trend kya chal raha hai.")
+st.markdown("The Dashboard shows the trends of salary Distribuion.")
 
 # Top Metrics
 m1, m2, m3 = st.columns(3)
@@ -57,7 +57,7 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("📈 Experience ka Salary par Asar")
+    st.subheader("📈 The effect of experience on salary.")
     st.write("Niche diye gaye graph se pata chalta hai ke experience barhne se salary mein kitna izafa hota hai.")
     avg_exp = df.groupby('Experience_Level')['Cleaned_Salary'].mean().sort_values().reset_index()
     fig1 = px.bar(avg_exp, x='Experience_Level', y='Cleaned_Salary', 
